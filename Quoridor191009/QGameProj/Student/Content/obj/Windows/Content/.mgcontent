@@ -4,7 +4,7 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/OlleSyncM/MAH/GU/ADS/Quoridor/F/Canvas191009/QGame Student/Student/Content/Fonts/TimesNewRoman14.spritefont</File>
+    <File>C:/Users/Lenovo/source/repos/QuridorAI/Quoridor191009/QGameProj/Student/Content/Fonts/TimesNewRoman14.spritefont</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

@@ -12,8 +12,7 @@ class Agent:BaseAgent {
         Spelare jag = bräde.spelare[0];
         Point playerPos = jag.position;
         Drag drag = new Drag();
-
-
+        
 
         if (jag.antalVäggar == 10)
         {
@@ -37,27 +36,6 @@ class Agent:BaseAgent {
         //Om draget ni försökte göra var felaktigt så kommer ni hit
         System.Diagnostics.Debugger.Break();    //Brytpunkt
         return SökNästaDrag(bräde);
-    }
-
-    //public void CreateGraph()
-    //{
-    //    Point[,] posArray = new Point[8, 8];
-
-    //    for (int i = 0; i < 8; i++)
-    //    {
-    //        for (int j = 0; j < 8; j++)
-    //        {
-    //            if (i + 1 > 8 || j + 1 > 8 || i - 1 < 0 || j - 1 < 0)
-    //            {
-    //                //Utanför brädan
-    //            }
-    //        }
-    //    }
-    //}
-
-    public void Graph()
-    {
-
     }
 }
 
