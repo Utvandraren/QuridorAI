@@ -12,6 +12,7 @@ class Agent:BaseAgent {
         Spelare jag = bräde.spelare[0];
         Point playerPos = jag.position;
         Drag drag = new Drag();
+        Graph test = new Graph(9);
         if (jag.antalVäggar == 10) {
             drag.typ = Typ.Horisontell;
             drag.point = new Point(3, 6);

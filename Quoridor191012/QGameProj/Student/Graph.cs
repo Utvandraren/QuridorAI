@@ -5,22 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-
-
 class Graph
 {
     Point[,] posArray;
     Point vertices;
     List<Point>[,] adj;
-    int edges;
-    int rootOfVertices;
+    int E;
+    int V;
 
     public Graph(int V)
     {
         vertices = new Point(V, V);
         adj = new List<Point>[V, V];
-        edges = 0;
-        rootOfVertices = V;
+        E = 0;
+        this.V = V;
 
         for (int i = 0; i < V; i++)
         {
@@ -69,9 +67,23 @@ class Graph
     {
         adj[v.X, v.Y].Add(w);
         adj[w.X, w.Y].Add(v);
-        ++edges;
+        ++E;
     }
 
+    //public void reverse()
+    //{
+    //    Graph R = new Graph(V);
+    //    for (int i = 0; i < V; i++)
+    //    {
+    //        for (int i = 0; i < V; i++)
+    //        {
+    //            for (int j = 0; j < V; j++)
+    //            {
+    //                R.AddEdge()
+    //            }
+    //        }
+    //    }
+    //}
 
 
 }
