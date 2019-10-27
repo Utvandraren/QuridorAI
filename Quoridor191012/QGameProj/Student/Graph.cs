@@ -10,9 +10,11 @@ class Graph
     public List<Point>[,] adj;
     public int E;
     public int V;
+    private SpelBräde bräde;
 
-    public Graph(int V)
+    public Graph(int V,SpelBräde bräde)
     {
+        this.bräde = bräde;
         adj = new List<Point>[V, V];
         E = 0;
         this.V = V;
@@ -38,23 +40,37 @@ class Graph
         //• Om R.Y == A.Y kolla att det inte finns en vertikal vägg ivägen.
         //• Lägg till A till som angränsande ruta till R.
 
-        for (int i = 0; i < V; i++)
+        for (int x = 0; x < V; x++)
         {
-            for (int j = 0; j < V; j++)
-            {
-                for (int l = i - 1; l < i + 2; l+=2)
+            for (int y = 0; y < V; y++)
+            {               
+                if (x-1 >= 0)
                 {
-                    for (int k = j - 1; k < j + 2; k+=2)
+                    if (!bräde.vertikalaVäggar[x - 1,y])
                     {
-                        if (l > 9 || l < 0 || k > 9 || k < 0 || i == l || j == l)
-                        {
-                            //Dont add
-                        }
-                        else
-                        {
-                            AddEdge(new Point(i, j), new Point(l, k));
-                        }
+                        AddEdge(new Point(x, y), new Point(x - 1, y));
                     }
+                }
+                if (x+1 < V)
+                {                  
+                   if (!bräde.vertikalaVäggar[x, y])
+                   {
+                       AddEdge(new Point(x, y), new Point(x + 1, y));
+                   }
+                }
+                if (y-1 >= 0)
+                {
+                    if (!bräde.horisontellaVäggar[x, y - 1])
+                    {
+                        AddEdge(new Point(x, y), new Point(x, y - 1));
+                    }
+                }
+                if (y+1 < V)
+                {                   
+                    if (!bräde.horisontellaVäggar[x, y])
+                    {
+                        AddEdge(new Point(x, y), new Point(x, y + 1));
+                    }                                     
                 }
             }
         }
@@ -63,7 +79,7 @@ class Graph
     public void AddEdge(Point v, Point w)
     {
         adj[v.X, v.Y].Add(w);
-        adj[w.X, w.Y].Add(v);
+        //adj[w.X, w.Y].Add(v);
         ++E;
     }
     
